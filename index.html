@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="assets/css/style.css">    
+    <title>Where is the logic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div class="home">
+    <div class="text">Где логика?</div>
+    <div class="question_image" id="reset"></div>
+
+    <div class="conateiner">
+        <button id="btn1" class="button btn1">КОМАНДА 1</button>
+        <button id="btn2" class="button btn2">КОМАНДА 2</button>
+    </div>
+</div>
+
+<script>
+    const socket = new WebSocket("ws://localhost:8080");
+
+    socket.onmessage = (event) => {
+        const state = JSON.parse(event.data);
+        
+        document.getElementById("btn1").classList.toggle("select", state.btn1);
+        document.getElementById("btn2").classList.toggle("select", state.btn2);
+
+        document.getElementById("btn1").disabled = state.btn1 || state.btn2;
+        document.getElementById("btn2").disabled = state.btn1 || state.btn2;
+    };
+
+    document.getElementById("btn1").onclick = () => socket.send(JSON.stringify({ btn1: true }));
+    document.getElementById("btn2").onclick = () => socket.send(JSON.stringify({ btn2: true }));
+    document.getElementById("reset").onclick = () => socket.send(JSON.stringify({ reset: true }));
+</script>
+</body>
+</html>

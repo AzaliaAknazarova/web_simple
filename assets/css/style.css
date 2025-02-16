@@ -1,0 +1,183 @@
+body {
+
+    margin: 0;
+    background: #f9bd0c;
+}
+
+*,
+*::before,
+*::after
+{
+    box-sizing: border-box;
+}
+
+.text {
+    font-family: cursive;
+    text-align: center;
+    margin-top: 100px;
+    font-weight: 700;
+    font-size: 65px;
+    color: #2C281E; /* Тёмно-коричневый цвет */
+    text-transform: uppercase;
+    text-shadow: 3px 2px 0 #FFFFFF;
+}
+
+.button {
+    background-color: #3b382a;
+    color: white;
+    border: none;
+    padding: 30px 46px;
+    font-size: 24px;
+    font-family: Arial, sans-serif;
+    border-radius: 19px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.select {
+    background-color: #ff5100;
+}
+
+
+.button:disabled{
+    cursor:not-allowed;
+
+}
+
+
+.conateiner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    text-align: center;
+    gap: 5vw;
+    margin-top: 25px;
+}
+
+
+.question_image{
+    background-image: url(../images/question_image.jpg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 350px;
+    height: 350px;
+    position: absolute;
+    bottom: 0;
+    left: 3px;
+    cursor: pointer;
+}
+
+/* Макет для телефонов (до 600px) */
+@media (max-width: 600px) {
+    .text {
+font-family: cursive;
+        text-align: center;
+        margin-top: 250px;
+        font-weight: 700;
+        font-size: 63px;
+        color: #2C281E;
+        text-transform: uppercase;
+        text-shadow: 3px 2px 0 #FFFFFF;
+    }
+
+    .button {
+        background-color: #515634;
+        color: white;
+        border: none;
+        padding: 25px 52px;
+        font-size: 24px;
+        font-family: Arial, sans-serif;
+        border-radius: 19px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .conateiner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        text-align: center;
+        gap: 5vw;
+        margin-top: 50px;
+    }
+
+    .question_image {
+        background-image: url(../images/question_image.jpg);
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 350px;
+        height: 350px;
+        position: absolute;
+        bottom: 0;
+        left: 3px;
+    }
+}
+
+/* Макет для обычных экранов (от 601px до 1024px) */
+@media (min-width: 601px) and (max-width: 1024px) { 
+
+    .button {
+        background-color: #334587;
+        color: white;
+        border: none;
+        padding: 30px 46px;
+        font-size: 24px;
+        font-family: Arial, sans-serif;
+        border-radius: 19px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+}
+
+
+/* Макет для широких экранов (от 1025px) */
+@media (min-width: 2000px) {
+
+    .button {
+        color: white;
+        border: none;
+        padding: 30px 46px;
+        font-size: 45px;
+        font-family: Arial, sans-serif;
+        border-radius: 19px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .text {
+        font-family: cursive;
+        text-align: center;
+        margin-top: 250px;
+        font-weight: 700;
+        font-size: 80px;
+        color: #2C281E;
+        text-transform: uppercase;
+        text-shadow: 3px 2px 0 #FFFFFF;
+    }
+
+    .conateiner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        text-align: center;
+        gap: 5vw;
+        margin-top: 60px;
+    }
+
+    .question_image {
+        background-image: url(../images/question_image.jpg);
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 500px;
+        height: 500px;
+        position: absolute;
+        bottom: 0;
+        left: 3px;
+    }
+}
