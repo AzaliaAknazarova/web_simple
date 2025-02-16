@@ -41,11 +41,10 @@ body {
 
 .button:disabled{
     cursor:not-allowed;
-
 }
 
 
-.conateiner{
+.container{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -74,7 +73,7 @@ body {
     .text {
 font-family: cursive;
         text-align: center;
-        margin-top: 250px;
+        margin-top: 70px;
         font-weight: 700;
         font-size: 63px;
         color: #2C281E;
@@ -83,18 +82,17 @@ font-family: cursive;
     }
 
     .button {
-        background-color: #515634;
         color: white;
         border: none;
-        padding: 25px 52px;
-        font-size: 24px;
+        padding: 15px 30px;
+        font-size: 16px;
         font-family: Arial, sans-serif;
         border-radius: 19px;
         cursor: pointer;
         transition: background-color 0.3s ease;
     }
 
-    .conateiner {
+    .container {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -109,8 +107,8 @@ font-family: cursive;
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
-        width: 350px;
-        height: 350px;
+        width: 200px;
+        height: 200px;
         position: absolute;
         bottom: 0;
         left: 3px;
@@ -121,7 +119,6 @@ font-family: cursive;
 @media (min-width: 601px) and (max-width: 1024px) { 
 
     .button {
-        background-color: #334587;
         color: white;
         border: none;
         padding: 30px 46px;
@@ -159,7 +156,7 @@ font-family: cursive;
         text-shadow: 3px 2px 0 #FFFFFF;
     }
 
-    .conateiner {
+    .container {
         display: flex;
         justify-content: center;
         align-items: center;

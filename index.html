@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="assets/css/style.css">    
-    <title>Where is the logic</title>
+    <title>Где логика?</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
@@ -11,25 +11,28 @@
     <div class="text">Где логика?</div>
     <div class="question_image" id="reset"></div>
 
-    <div class="conateiner">
+    <div class="container">
         <button id="btn1" class="button btn1">КОМАНДА 1</button>
         <button id="btn2" class="button btn2">КОМАНДА 2</button>
     </div>
 </div>
 
 <script>
-    const socket = new WebSocket("ws://localhost:8080");
+    const socket = new WebSocket("ws://79.174.95.157:8080");
 
     socket.onmessage = (event) => {
         const state = JSON.parse(event.data);
-        
+
+        // Обновляем визуальное состояние кнопок в зависимости от состояния
         document.getElementById("btn1").classList.toggle("select", state.btn1);
         document.getElementById("btn2").classList.toggle("select", state.btn2);
 
+        // Делаем кнопки недоступными, если другая кнопка была нажата
         document.getElementById("btn1").disabled = state.btn1 || state.btn2;
         document.getElementById("btn2").disabled = state.btn1 || state.btn2;
     };
 
+    // Обработчики для кнопок
     document.getElementById("btn1").onclick = () => socket.send(JSON.stringify({ btn1: true }));
     document.getElementById("btn2").onclick = () => socket.send(JSON.stringify({ btn2: true }));
     document.getElementById("reset").onclick = () => socket.send(JSON.stringify({ reset: true }));
