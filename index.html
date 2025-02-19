@@ -20,6 +20,10 @@
 <script>
     const socket = new WebSocket("ws://79.174.95.157:8080");
 
+    // Проверяем, передан ли параметр modmode в URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const isAdmin = urlParams.has('admin') && urlParams.get('admin') === 'secret123';
+
     socket.onmessage = (event) => {
         const state = JSON.parse(event.data);
 
@@ -35,7 +39,13 @@
     // Обработчики для кнопок
     document.getElementById("btn1").onclick = () => socket.send(JSON.stringify({ btn1: true }));
     document.getElementById("btn2").onclick = () => socket.send(JSON.stringify({ btn2: true }));
-    document.getElementById("reset").onclick = () => socket.send(JSON.stringify({ reset: true }));
+    document.getElementById("reset").onclick = () => {
+        if (isAdmin) {
+            socket.send(JSON.stringify({ reset: true }));
+        } else {
+            alert("Вы не администратор. У вас нет прав на сброс.");
+        }
+    };
 </script>
 </body>
 </html>
